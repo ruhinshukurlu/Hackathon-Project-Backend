@@ -1,0 +1,4 @@
+.venv/
+pgdb/
+redisdb/
+__pycache__
