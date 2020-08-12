@@ -1,0 +1,101 @@
+html, body{
+    height: 100%;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+#body{
+    background: url('../images/techacademy.jpg');
+}
+
+.logo{
+    width: 170px;
+}
+
+.custom-container{
+    max-width: 60%;
+    margin: auto;
+}
+
+.menu-box{
+    justify-content: flex-end;
+}
+
+.form-control{
+    height: 55px;
+   
+}
+
+
+.full-w{
+    width: 100%;
+}
+
+.fa-user, .fa-users{
+    font-size: 100px;
+    color: #ccc;
+}
+
+
+.register-icon-box, .icon-box{
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-box{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.form-group a{
+    color: #000;
+}
+
+.link-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.register-user-btn{
+    background-color: #ccc;
+    padding: 8px 40px;
+}
+
+.right{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+
+.social-links-box{
+    display: flex;
+    align-items: center;
+}
+
+.social-links-box i{
+    font-size: 20px;
+    color: #fff;
+}
+
+.social-link-a{
+    text-decoration: none !important;
+    background-color: rgb(148, 148, 148);
+    display: flex;
+    border-radius: 50%;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}

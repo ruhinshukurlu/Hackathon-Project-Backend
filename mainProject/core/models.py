@@ -114,3 +114,16 @@ class Comment(models.Model):
         return self.author
 
    
+class Level(models.Model):
+
+    title = models.CharField(_("Title"), max_length=50)
+    student = models.ForeignKey("account.Student", verbose_name=_("Student"), on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = _("Level")
+        verbose_name_plural = _("Levels")
+
+    def __str__(self):
+        return self.title
+
+       
