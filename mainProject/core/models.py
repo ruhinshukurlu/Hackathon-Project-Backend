@@ -66,7 +66,7 @@ class Month(models.Model):
         verbose_name_plural = _("Months")
 
     def __str__(self):
-        return self.name
+        return self.get_title_display()
 
 
 class Project(models.Model):

@@ -32,7 +32,22 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ('email',)
     ordering = ('email',)
 
+    def get_queryset(self, request, *args, **kwargs):
+        queryset = super().get_queryset(request, *args, **kwargs)
+        if request.user.is_superuser:
+            return queryset
+        return queryset.filter(id=request.user.pk)
+
+    def get_readonly_fields(self, request, *args, **kwargs):
+        if request.user.is_superuser:
+            return ()
+        return ('is_staff', 'is_superuser', 'is_active', 'groups', 'user_permissions',)
+
+    
+
 admin.site.register(User, UserAdmin)
+
+admin.site.register([Student, Teacher, RatingUser])
 
 
 
