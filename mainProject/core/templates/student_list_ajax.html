@@ -3,27 +3,27 @@
 <div class="student-list full-w">
     {% for student in students %}
         <a href="{% url 'core:student-detail' student.pk %}">
-           <div class="student">
+            <div class="student">
                 <div class="student-img">
-                    <img class="card-img-top" src="{% static 'images/student1.jpg' %}" alt="">
+                    <img class="card-img-top" src="{{student.user.profile_img.url}}" alt="">
                 </div>
                 <div class="student-infos">
-                    <h4 class="name">{{student.user.first_name}} {{student.user.first_name}}</h4>
+                    <h4 class="name">{{student.user.first_name}} {{student.user.last_name}}</h4>
                     <div class="d-flex">
                         <strong>Level : </strong>
-                        <span>Junior Full Stack</span>
+                        <span>{{student.level.title}}</span>
                     </div>
                     <div class="d-flex">
                         <strong>Group : </strong>
-                        <span>Alligator</span>
+                        <span>{{student.group}}</span>
                     </div>
                     <div class="d-flex">
-                        <strong>Full Stack Web Developmeent</strong>
+                        <strong>{{student.group.session}}</strong>
                     </div>
                 </div>
             </div>
         </a>
         {% empty %}
-        <h1>Axtarisa uygun netice tapilmadi</h1>
+        <h1 class="full bold text-center mt-3" style="color: #A1A289;">Axtarisa uygun netice tapilmadi</h1>
     {% endfor %}
 </div>

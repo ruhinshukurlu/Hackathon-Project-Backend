@@ -12,11 +12,7 @@ a{
 
 .img-section{
     width: 100%;
-    height: 300px;
-    background: url('../images/tech.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 400px;
 }
 
 .logo{
@@ -143,6 +139,7 @@ a{
     flex-direction: column;
     justify-content: space-evenly;
     transition: .4s;
+    margin: 5px;
 }
 
 .student:hover{
@@ -161,6 +158,7 @@ a{
 }
 
 .student-img img{
+    max-width: 300px;
     width: 100%;
     height: 260px;
     object-fit: cover;
@@ -213,3 +211,21 @@ a{
 .lesson-details li i{
     color: green;
 }
+
+footer{
+    background-color: #45526e !important;
+    color: white;
+}
+
+footer a{
+    color: white;
+}
+
+footer a:hover{
+    color: gold;
+}
+
+#main{
+    min-height: 800px;
+}
+

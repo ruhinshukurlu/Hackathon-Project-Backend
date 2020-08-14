@@ -16,7 +16,7 @@
   </head>
   <body>
 
-    <header class=" bg-light">
+    <header class=" bg-light" style="box-shadow: 0px 0px 12px -4px rgba(0,0,0,0.75);">
         <div class="custom-container">
             <div class="row">
                 <nav class="navbar justify-content-between navbar-expand-lg navbar-light py-3 full-w">
@@ -59,17 +59,18 @@
             </div>
         </div>
     </header>
+    
+    <section class="img-section" style="background: url('{% static 'images/bootcamp.jpg'%}');background-position: center;background-repeat: no-repeat;background-size: cover;"></section>
 
-   <div id="main" class="mt-4">
+   <div id="main" class="mt-4 mb-5">
         <main>
             <div class="students-container">
-                <div class="row mb-3">
+                <div class="row mb-5">
                     <div class="about-students">
-                        <h2 class="full bold text-center">Our Students</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quam voluptatem. Quasi minus dicta, 
-                            eius obcaecati sit eveniet rem omnis distinctio dolorem nobis minima, perspiciatis unde natus a quia 
-                            ipsa! eius obcaecati sit eveniet rem omnis distinctio dolorem nobis minima, perspiciatis unde natus a quia 
-                            ipsa!
+                        <h2 class="full bold text-center">Tələbələrimiz</h2>
+                        <p>Tələbələrini gələcəyin mütəxəssisləri kimi hazırlayan və onlarla həm akademik, 
+                            həm professional əməkdaşlıq etməkdə hər zaman maraqlı olan Tech Academy sadəcə
+                            bir tədris mərkəzi yox sizin karyeranınızın başlanğıc və ya dönüş nöqtəsidir.
                         </p>
                     </div>
                 </div>
@@ -102,20 +103,20 @@
                             <a href="{% url 'core:student-detail' student.pk %}">
                                <div class="student">
                                     <div class="student-img">
-                                        <img class="card-img-top" src="{% static 'images/student1.jpg' %}" alt="">
+                                        <img class="card-img-top" src="{{student.user.profile_img.url}}" alt="">
                                     </div>
                                     <div class="student-infos">
-                                        <h4 class="name">{{student.user.first_name}} {{student.user.first_name}}</h4>
+                                        <h4 class="name">{{student.user.first_name}} {{student.user.last_name}}</h4>
                                         <div class="d-flex">
                                             <strong>Level : </strong>
-                                            <span>Junior Full Stack</span>
+                                            <span>{{student.level.title}}</span>
                                         </div>
                                         <div class="d-flex">
                                             <strong>Group : </strong>
-                                            <span>Alligator</span>
+                                            <span>{{student.group}}</span>
                                         </div>
                                         <div class="d-flex">
-                                            <strong>Full Stack Web Developmeent</strong>
+                                            <strong>{{student.group.session}}</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -126,6 +127,117 @@
             </div>
         </main>
    </div>
+
+   <!-- Footer -->
+    <footer class="page-footer font-small mdb-color pt-4">
+
+    <!-- Footer Links -->
+    <div class="students-container text-center text-md-left">
+  
+      <!-- Footer links -->
+      <div class="row text-center text-md-left mt-3 pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+              <img src="{% static 'images/tech-footer-logo.webp' %}" alt="">
+          </h6>
+          <p>Tələbələrini gələcəyin mütəxəssisləri kimi hazırlayan və onlarla həm akademik, həm professional əməkdaşlıq etməkdə hər zaman maraqlı olan
+            Tech Academy sadəcə bir tədris mərkəzi yox sizin karyeranınızın başlanğıc və ya dönüş nöqtəsidir.</p>
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Akademiya</h6>
+          <p>
+            <a href="#!">Haqqımızda</a>
+          </p>
+          <p>
+            <a href="#!">Talant Mərkəzi</a>
+          </p>
+          <p>
+            <a href="#!">Blog</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none">
+  
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <p>
+            <i class="fas fa-home mr-3"></i> Atatürk prospekti 19, Elektron Hökümət 1-ci mərtəbə</p>
+          <p>
+            <i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+          <p>
+            <i class="fas fa-phone mr-3"></i> +994 50 605 36 02</p>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Footer links -->
+  
+      <hr>
+  
+      <!-- Grid row -->
+      <div class="row d-flex align-items-center">
+  
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8">
+  
+          <!--Copyright-->
+          <p class="text-center text-md-left">© 2020 Copyright</p>
+  
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0">
+  
+          <!-- Social buttons -->
+          <div class="text-center text-md-right">
+            <ul class="list-unstyled list-inline">
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fab fa-google-plus-g"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+  
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+    <!-- Footer Links -->
+  
+    </footer>
+  <!-- Footer -->
     
    <script
    src="https://code.jquery.com/jquery-3.5.1.min.js"
