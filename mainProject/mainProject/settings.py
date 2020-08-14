@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'easy_thumbnails',
     'account',
     'core',
 ]
@@ -138,3 +139,9 @@ STATICFILES_DIRS= [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'project_img': {'size': (100, 100), 'crop': True},
+    },
+}

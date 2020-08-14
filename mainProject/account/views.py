@@ -22,6 +22,4 @@ class LoginView(LoginView):
     template_name = 'login.html'
     form_class = LoginForm
 
-    def get_success_url(self, **kwargs): 
-        return reverse_lazy('core:home')
 

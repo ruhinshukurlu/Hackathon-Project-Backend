@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load custom_tags %}
+{% load custom_tags thumbnail %}
 <html lang="en">
 
 <head>
@@ -158,11 +158,17 @@
                                 <h2 style="color: #0c78f3; font-weight: bold;">{{student.user.first_name}} {{student.user.last_name}}</h2>
                                 <div class="d-flex">
                                     <div class="rating-container mr-4">
-                                        <div class="popup p-cont" onclick="pop_it()">
+                                        <div class="popup p-cont" >
                                             <i class="fas fa-star-half-alt" onclick="pop_it_up()" style="color: gold; font-size: 34px;"></i>
-                                            <span class="popuptext" id="myPopup"><i class="far fa-star" style="color: gold;"></i><i class="far fa-star" style="color: gold;"></i><i class="far fa-star" style="color: gold;"></i><i class="far fa-star" style="color: gold;"></i><i class="far fa-star" style="color: gold;"></i></span>
+                                            <span class="popuptext" id="myPopup">
+                                                <i class="far fa-star" style="color: gold;"></i>
+                                                <i class="far fa-star" style="color: gold;"></i>
+                                                <i class="far fa-star" style="color: gold;"></i>
+                                                <i class="far fa-star" style="color: gold;"></i>
+                                                <i class="far fa-star" style="color: gold;"></i>
+                                            </span>
                                         </div>
-                                        <small>5.0</small>
+                                        <small id="rating">{{student.user.rating}}</small>
                                     </div>
                                     <button class="request-btn mr-3" style="background: linear-gradient(to right, rgb(50,59,217), rgb(212, 87, 107)); border: transparent; border-radius: 20px; color: white; width: 120px; height: 35px;">Download CV</button>
                                     <button class="request-btn" style="background: linear-gradient(to right, rgb(50,59,217), rgb(212, 87, 107)); border: transparent; border-radius: 20px; color: white; width: 120px; height: 35px;">Send request</button>
@@ -316,13 +322,20 @@
                     <div class="col-lg-4 projects-container">
                         <div class="projects">
                             <h3 class="ml-sm-5 ml-3 mt-3 mb-4">Personal Projects</h3>
+                            {% for project in projects %}
                             <div class="project-temp d-flex ml-sm-5 mt-3">
-                                <img src="data:image/jpeg;base64,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" alt="Project preview" class="project-preview">
+
+                                <a data-fancybox="gallery"  href="{{project.image.url}}">
+                                    <img class="project-preview" src="{{ project.image|thumbnail_url:'project_img' }}"  src="https://source.unsplash.com/lSXpV8bDeMA/416x623"></a>
+                                
+                                
                                 <div class="project-info ml-3">
-                                    <h4>Peach Music</h4>
-                                <a href="">Check the project</a>
+                                    <h4>{{project.name}}</h4>
+                                <a href="{{project.link}}">Check the project</a>
                                 </div>
                             </div>
+                            {% endfor %}
+
                             <div class="project-temp d-flex ml-sm-5 mt-3">
                                 <img src="https://images-na.ssl-images-amazon.com/images/I/51-n3NFOZwL.png" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
@@ -378,9 +391,10 @@
           popup.classList.toggle("show");
         }
         </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+       <script
+       src="https://code.jquery.com/jquery-3.5.1.min.js"
+       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+       crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -388,7 +402,23 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="js/app.js"></script>
+    <!-- 1. Add latest jQuery and fancybox files -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+    <script src="{% static 'js/app.js' %}"></script>
+
+    <script>
+        window.PARAMS = {};
+        window.PARAMS['isAuth'] = true ? "{{ request.user.is_authenticated }}" === "True" : "False";
+        window.PARAMS['loginUrl'] = `{% url 'account:login' %}?next=${window.location.pathname}`;
+        window.PARAMS['ratingUrl'] = `{% url 'core:student-rating' student.user.id  %}`;
+        window.PARAMS['ownerRating'] = parseInt(`{{owner_rating}}`);
+    </script>
+
 </body>
 
 </html>

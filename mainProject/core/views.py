@@ -1,8 +1,9 @@
+import re
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, View
 from account.models import *
 from core.models import *
-from django.http import HttpResponse
+from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
@@ -57,6 +58,13 @@ class StudentDetailView(DetailView):
         context = super().get_context_data(*args, **kwargs)
         student = self.object
         context['months'] = Month.objects.filter(title__lte=student.last_month.title)
+        owner_rating = self.request.user.rating_owners.filter(user=self.object.user).first()
+        if owner_rating:
+            context['owner_rating'] = owner_rating.point
+        else:
+            context['owner_rating'] = 0
+
+        context['projects'] = Project.objects.filter(student=self.object)
         return context
 
 
@@ -67,12 +75,12 @@ class GiveRatingView(LoginRequiredMixin, View):
         owner = self.request.user
         user_id = kwargs.get('pk')
         user = User.objects.get(pk=user_id)
-        if rating and rating.isdigit():
-            rating = float(rating)
-            if not 0<rating<5:
-                return HttpResponse({'message': 'Something went wrong'})
-            RatingUser.objects.update_or_create(user=user, owner=owner, point=rating)
-        
-        return HttpResponse({'message': 'success'})
+        if not rating or not re.match(r'^-?\d+(?:\.\d+)?$', rating):
+            return JsonResponse({'message': 'Something went wrong'})
+        rating = float(rating)
+        if not 0<rating<=5:
+            return JsonResponse({'message': 'Something went wrong'})
+        RatingUser.objects.update_or_create(user=user, owner=owner, defaults={'point': rating})
+        return JsonResponse({'message': 'success', 'rating': user.rating, 'owner_rating': rating})
 
 

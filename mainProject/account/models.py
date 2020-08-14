@@ -1,3 +1,4 @@
+import math
 from django.db import models
 from django.core.mail import send_mail
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -27,6 +28,14 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+    @property
+    def rating(self):
+        point = self.rating_users.all().aggregate(models.Avg('point'))
+        print(point)
+        if not point or not point.get('point__avg'):
+            return 0.0
+        return "{:.1f}".format(point.get('point__avg', 0))
 
 
 class RatingUser(models.Model):
