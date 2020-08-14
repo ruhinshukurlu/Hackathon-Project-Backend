@@ -5,7 +5,7 @@
         <a href="{% url 'core:student-detail' student.pk %}">
             <div class="student">
                 <div class="student-img">
-                    <img class="card-img-top" src="{{student.user.profile_img.url}}" alt="">
+                    <img class="card-img-top" src="{{student.user.avatar}}" alt="">
                 </div>
                 <div class="student-infos">
                     <h4 class="name">{{student.user.first_name}} {{student.user.last_name}}</h4>
