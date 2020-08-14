@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+    <title>Our Students</title>
+  </head>
+  <body>
+
+    <header class=" bg-light">
+        <div class="custom-container">
+            <div class="row">
+                <nav class="navbar justify-content-between navbar-expand-lg navbar-light py-3 full-w">
+                    <a class="navbar-brand" href="index.html">
+                        <img class="logo" src="https://static.wixstatic.com/media/50b774_504c9af5ed1446cda5995409d37fea4e~mv2.png/v1/fill/w_320,h_40,al_c,q_85,usm_0.66_1.00_0.01/Logo%202.webp" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="right">
+                        <div class="menu-box">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active ml-3">
+                                    <a class="nav-link" href="#community">ƏSAS SƏHİFƏ<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item active ml-4">
+                                    <a class="nav-link" href="#programs">DİSTANT TƏHSİL<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item active ml-4">
+                                    <a class="nav-link" href="#about">BOOTCAMP<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item active ml-4">
+                                    <a class="nav-link" href="#about">AKADEMİYA<span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item active ml-4">
+                                    <a class="nav-link" href="#about">ƏLAQƏ<span class="sr-only">(current)</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="social-links-box">
+                            <a class="social-link-a" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="social-link-a" href="#"><i class="fab fa-youtube"></i></a>
+                            <a class="social-link-a" href="#"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+   <div id="main" class="mt-4">
+        <main>
+            <div class="students-container">
+                <div class="row mb-3">
+                    <div class="about-students">
+                        <h2 class="full bold text-center">Our Students</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, quam voluptatem. Quasi minus dicta, 
+                            eius obcaecati sit eveniet rem omnis distinctio dolorem nobis minima, perspiciatis unde natus a quia 
+                            ipsa! eius obcaecati sit eveniet rem omnis distinctio dolorem nobis minima, perspiciatis unde natus a quia 
+                            ipsa!
+                        </p>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <form action="" class="full d-flex">
+                        <select class="custom-select" name="group" id="">
+                            <option value="0">Groups</option>
+                            <option value="1">Alligator</option>
+                            <option value="2">Rapator</option>
+                            <option value="3">Docker</option>
+                        </select>
+                        <select class="custom-select" name="level" id="">
+                            <option value="0">Levels</option>
+                            <option value="1">Fundamentals</option>
+                            <option value="2">Front-end</option>
+                            <option value="3">Back-end</option>
+                        </select>
+                        <select class="custom-select" name="session" id="">
+                            <option value="0">Sessions</option>
+                            <option value="1">Web Developmeent</option>
+                            <option value="2">QA Automation</option>
+                            <option value="3">.....</option>
+                        </select>
+                    </form>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="student-list full-w">
+                        {% for student in students %}
+                            <a href="{% url 'core:student-detail' student.pk %}">
+                               <div class="student">
+                                    <div class="student-img">
+                                        <img class="card-img-top" src="{% static 'images/student1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="student-infos">
+                                        <h4 class="name">{{student.user.first_name}} {{student.user.first_name}}</h4>
+                                        <div class="d-flex">
+                                            <strong>Level : </strong>
+                                            <span>Junior Full Stack</span>
+                                        </div>
+                                        <div class="d-flex">
+                                            <strong>Group : </strong>
+                                            <span>Alligator</span>
+                                        </div>
+                                        <div class="d-flex">
+                                            <strong>Full Stack Web Developmeent</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </main>
+   </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

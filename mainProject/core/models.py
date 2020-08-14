@@ -86,7 +86,7 @@ class Project(models.Model):
 
 class UserSocialMediaLink(models.Model):
 
-    user = models.ForeignKey("account.User", verbose_name=_("User"), on_delete=models.CASCADE)
+    user = models.ForeignKey("account.User", verbose_name=_("User"), on_delete=models.CASCADE, related_name='links')
     name = models.CharField(_("Name"), max_length=50)
     url = models.URLField(_("Url"), max_length=200)
 
@@ -117,7 +117,7 @@ class Comment(models.Model):
 class Level(models.Model):
 
     title = models.CharField(_("Title"), max_length=50)
-    student = models.ForeignKey("account.Student", verbose_name=_("Student"), on_delete=models.CASCADE)
+    student = models.ForeignKey("account.Student", verbose_name=_("Student"), on_delete=models.CASCADE, related_name='level')
 
     class Meta:
         verbose_name = _("Level")

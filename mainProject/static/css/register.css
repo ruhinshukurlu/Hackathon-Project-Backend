@@ -10,12 +10,26 @@ a{
     background: url('../images/techacademy.jpg');
 }
 
+.img-section{
+    width: 100%;
+    height: 300px;
+    background: url('../images/tech.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .logo{
     width: 170px;
 }
 
 .custom-container{
-    max-width: 60%;
+    max-width: 85%;
+    margin: auto;
+}
+
+.students-container{
+    max-width: 75%;
     margin: auto;
 }
 
@@ -38,6 +52,10 @@ a{
     color: #ccc;
 }
 
+.filter-form{
+    width: 70%;
+    margin: auto;
+}
 
 .register-icon-box, .icon-box{
     border: 3px solid #ccc;
@@ -98,4 +116,100 @@ a{
     height: 30px;
     justify-content: center;
     align-items: center;
+}
+
+.about-students{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color: #A1A289 ;
+}
+
+.student-infos{
+    padding: 0px 0 8px 10px;
+    color: black;
+}
+
+.student-img{
+    padding: 10px;
+}
+
+.student{
+    border: 1px solid #ECECEB;
+    border-radius: 5px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: .4s;
+}
+
+.student:hover{
+    -webkit-box-shadow: 0px 0px 20px -4px rgba(163,163,163,1);
+    -moz-box-shadow: 0px 0px 20px -4px rgba(163,163,163,1);
+    box-shadow: 0px 0px 20px -4px rgba(163,163,163,1);
+}
+
+.student-list .col-3{
+    margin-bottom: 20px;
+}
+
+.name{
+    color: #989A27;
+    font-weight: bold;
+}
+
+.student-img img{
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.month-btn {
+    background: linear-gradient(to right, rgb(50,59,217), rgb(212, 87, 107));
+    color: white;
+    border-radius: 50%;
+    border: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    width: 60px;
+    height: 60px;
+}
+
+.start-finish-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-finish-btn{
+    background-color: #1e8aee;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+.months-container{
+    display: flex;
+}
+
+.custom-select{
+    margin-right: 10px;
+}
+
+.rating-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lesson-details{
+    padding-top: 50px;
+}
+
+.lesson-details li i{
+    color: green;
 }

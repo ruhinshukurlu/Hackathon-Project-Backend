@@ -62,19 +62,8 @@ body {
     margin-top: 100px;
     /* border-bottom: 1px solid #e6e6e6e6 !important; */
 }
-.months-container {
-    border: 1px solid #e6e6e6e6;
-    border-radius: 5px;
-}
-.month-btn {
-    background: linear-gradient(to right, rgb(50,59,217), rgb(212, 87, 107));
-    color: white;
-    border-radius: 50%;
-    border: transparent;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 16px;
-}
+
+
 .project-preview {
     width: 100px;
     height: 100px;
@@ -88,6 +77,25 @@ body {
 }
 .sc-container {
     text-align: right;
+}
+.social-links-box{
+    display: flex;
+    align-items: center;
+}
+.social-links-box i{
+    font-size: 20px;
+    color: #fff;
+}
+.social-link-a{
+    text-decoration: none !important;
+    background-color: rgb(148, 148, 148);
+    display: flex;
+    border-radius: 50%;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (min-width: 361px) and (max-width: 767px) {
