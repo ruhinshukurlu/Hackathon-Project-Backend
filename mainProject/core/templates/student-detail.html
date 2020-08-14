@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load custom_tags %}
 <html lang="en">
 
 <head>
@@ -194,12 +195,10 @@
                                 </button>
                                 <span class="text-center">12 February Started <br/> Tech Academy</span>
                             </div>
-                            <button class="month-btn">1 m</button>
-                            <button class="month-btn ml-sm-4">2 m</button>
-                            <button class="month-btn ml-sm-4">3 m</button>
-                            <button class="month-btn ml-sm-4">4 m</button>
-                            <button class="month-btn ml-sm-4">5 m</button>
-                            <button class="month-btn ml-sm-4">6 m</button>
+                            {% for month in months %}
+                            <button class="month-btn">{{month.get_title_display}} </button>
+                            {% endfor %}
+  
                             <div class="start-finish-box ml-4">
                                 <button class="start-finish-btn">
                                     <i class="fas fa-graduation-cap"></i>
@@ -233,33 +232,18 @@
                         <div class="row lesson-details">
                             <div class="col-6">
                                 <ul>
+                                    {% for month in months %}
                                     <li class="mb-3">
-                                        <span class="bold">1. Month lessons</span>
+                                        <span class="bold">{{month.get_title_display}} lessons</span>
                                     </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Html</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Css</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Javascript</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Jquery</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>HTML DOM</span>
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>To make website fully responsive</span>
-                                    </li>
+                                    {% get_subjects month.id student.group.session.id as subjects %}
+                                    {% for subject in subjects %}
+                                        <li>
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>{{ subject.title }}</span>
+                                        </li>
+                                    {% endfor %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                             <div class="col-6">

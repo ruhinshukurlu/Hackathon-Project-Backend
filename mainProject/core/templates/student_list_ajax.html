@@ -1,0 +1,29 @@
+{% load static %}
+
+<div class="student-list full-w">
+    {% for student in students %}
+        <a href="{% url 'core:student-detail' student.pk %}">
+           <div class="student">
+                <div class="student-img">
+                    <img class="card-img-top" src="{% static 'images/student1.jpg' %}" alt="">
+                </div>
+                <div class="student-infos">
+                    <h4 class="name">{{student.user.first_name}} {{student.user.first_name}}</h4>
+                    <div class="d-flex">
+                        <strong>Level : </strong>
+                        <span>Junior Full Stack</span>
+                    </div>
+                    <div class="d-flex">
+                        <strong>Group : </strong>
+                        <span>Alligator</span>
+                    </div>
+                    <div class="d-flex">
+                        <strong>Full Stack Web Developmeent</strong>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% empty %}
+        <h1>Axtarisa uygun netice tapilmadi</h1>
+    {% endfor %}
+</div>

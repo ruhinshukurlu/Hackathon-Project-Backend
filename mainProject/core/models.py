@@ -43,7 +43,7 @@ class Subject(models.Model):
         verbose_name_plural = _("Subjects")
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class Month(models.Model):
@@ -117,7 +117,6 @@ class Comment(models.Model):
 class Level(models.Model):
 
     title = models.CharField(_("Title"), max_length=50)
-    student = models.ForeignKey("account.Student", verbose_name=_("Student"), on_delete=models.CASCADE, related_name='level')
 
     class Meta:
         verbose_name = _("Level")

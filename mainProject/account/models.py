@@ -39,13 +39,15 @@ class RatingUser(models.Model):
         verbose_name_plural = _('Ratings')
     
     def __str__(self):
-        return self.user
+        return self.user.email
 
     
 class Student(models.Model):
 
     user = models.OneToOneField("account.User", related_name="student", verbose_name=_("Student"), on_delete=models.CASCADE, primary_key=True)
     group = models.ForeignKey("core.Group", related_name="students", verbose_name=_("Group"), on_delete=models.CASCADE)
+    level = models.ForeignKey('core.Level', related_name='students', verbose_name=_("Level"), on_delete=models.CASCADE)
+    last_month = models.ForeignKey('core.Month', related_name='students', verbose_name=_("Last Month"), on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = _("Student")

@@ -5,7 +5,7 @@ from account.models import Student
 User = get_user_model()
 
 
-admin.site.register([Session, Subject, Month, Comment, Level, ])
+admin.site.register([Session, Subject, Month, Comment, Level ])
 
 
 @admin.register(Project)
