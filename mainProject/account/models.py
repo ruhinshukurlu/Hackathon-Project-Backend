@@ -28,6 +28,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+    @property
+    def avatar(self):
+        if self.profile_img:
+            return self.profile_img.url
+        return 'https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg'
     
     @property
     def rating(self):

@@ -57,12 +57,12 @@ class StudentDetailView(DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         student = self.object
+        context['owner_rating'] = 0
         context['months'] = Month.objects.filter(title__lte=student.last_month.title)
-        owner_rating = self.request.user.rating_owners.filter(user=self.object.user).first()
-        if owner_rating:
-            context['owner_rating'] = owner_rating.point
-        else:
-            context['owner_rating'] = 0
+        if self.request.user.is_authenticated:
+            owner_rating = self.request.user.rating_owners.filter(user=self.object.user).first()
+            if owner_rating:
+                context['owner_rating'] = owner_rating.point
 
         context['projects'] = Project.objects.filter(student=self.object)
         return context
