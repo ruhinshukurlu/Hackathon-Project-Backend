@@ -67,8 +67,9 @@ body {
 
 
 .project-preview {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
+    border-radius: 5px;
 }
 .projects {
     border: 1px solid #e6e6e6e6;

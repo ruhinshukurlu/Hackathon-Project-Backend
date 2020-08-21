@@ -22,4 +22,3 @@ class LoginView(LoginView):
     template_name = 'login.html'
     form_class = LoginForm
 
-

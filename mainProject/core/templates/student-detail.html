@@ -96,7 +96,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
-        <a class="navbar-brand ml-5" href="index.html"><img class="logo" src="https://static.wixstatic.com/media/50b774_504c9af5ed1446cda5995409d37fea4e~mv2.png/v1/fill/w_320,h_40,al_c,q_85,usm_0.66_1.00_0.01/Logo%202.webp" alt="logo"></a>
+        <a class="navbar-brand ml-5" href="https://www.tech.edu.az/"><img class="logo" src="https://static.wixstatic.com/media/50b774_504c9af5ed1446cda5995409d37fea4e~mv2.png/v1/fill/w_320,h_40,al_c,q_85,usm_0.66_1.00_0.01/Logo%202.webp" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -117,10 +117,19 @@
                     <a class="nav-link" href="#about">AKADEMİYA<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active mr-lg-3">
+                  <a class="nav-link" href="{% url 'core:student-list' %}">TƏLƏBƏLƏRIMIZ<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active mr-lg-3">
                     <a class="nav-link" href="#about">ƏLAQƏ<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto align-items-start mb-3 mb-lg-0">
+                <li class="nav-item active m-2">
+                    <a class="nav-link" href="{% url 'account:register' %}">Qeydiyyat<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active m-2">
+                    <a class="nav-link" href="{% url 'account:login' %}">Daxil Ol<span class="sr-only">(current)</span></a>
+                </li> 
                 <li class="nav-item active m-2">
                     <div class="social-links-box">
                         <a class="social-link-a" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -267,10 +276,11 @@
               </ul>
               </div>
             </div>
-          </div>
+        </div>
           
-      </div>
-      
+    </div>
+    
+    
     <div class="main">
         <div class="main-info pt-5">
             <div class="custom-container">
@@ -300,7 +310,7 @@
                                     <span class="ml-1"> {{student.user.email}}</span>
                                 </div>
                                 <div class="d-felx">
-                                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">View Skill</span>
+                                    <span style="padding: 5px 20px;" class="mt-2 btn btn-outline-primary" onclick="openNav()">View Skills</span>
                                 </div>
                                 
                             </div>
@@ -381,7 +391,7 @@
         <div class="other-info">
             <div class="custom-container">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-9">
                         <div class="row justify-content-center mb-5 pb-3 border-bottom">
                             <div class="months-container justify-content-center">
                                 <div class="start-finish-box mr-4">
@@ -450,23 +460,19 @@
                                         </li>
                                         <li>
                                             <i class="fas fa-check-circle"></i>
-                                            <span>To construct html sections as given</span>
+                                            <span>Landing page fully responsive</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-check-circle"></i>
-                                            <span>To construct html sections as given</span>
+                                            <span>To generate images in the specific sizes using Js</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-check-circle"></i>
-                                            <span>To construct html sections as given</span>
+                                            <span>Todolist in jquery</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-check-circle"></i>
-                                            <span>To construct html sections as given</span>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-check-circle"></i>
-                                            <span>To construct html sections as given</span>
+                                            <span>Word game</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -499,7 +505,7 @@
                                     </div>
                                 </div>
                                 <div class="write-comment mt-2 mb-5">
-                                    <textarea class="ml-sm-5 mt-5 form-control" name="Comment" placeholder="Comment" id="" cols="30" rows="10" style="outline: none; resize: none; width: 95%; height: 100px;"></textarea>
+                                    <textarea class="ml-sm-5 mt-5 form-control" name="Comment" placeholder="Comment" id="" cols="30" rows="10" style="border:1px solid #ccc; border-radius: 10px; width: 95%; height: 100px;"></textarea>
                                     <div class="sc-container">
                                         <button class="submit-commit mt-2" style="outline: none; background-color: #0c78f3; border: transparent; border-radius: 20px; color: white; width: 120px; height: 35px;">Review</button>
                                     </div>
@@ -507,15 +513,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 projects-container">
+                    <div class="col-lg-3 projects-container">
                         <div class="projects">
-                            <h3 class="ml-sm-5 ml-3 mt-3 mb-4">Personal Projects</h3>
+                            <h3 class="bold text-center full mt-2 mb-4 pb-2">Personal Projects</h3>
                             {% for project in projects %}
                             <div class="project-temp d-flex ml-sm-5 mt-3">
 
                                 <a data-fancybox="gallery" data-caption="myProject is an innovative software solution for managing documents and project data in distributed projects"  href="{{project.image.url}}">
-                                    <img class="project-preview" src="{{ project.image|thumbnail_url:'project_img' }}"  src="https://source.unsplash.com/lSXpV8bDeMA/416x623"></a>
-                                
+                                    <img class="project-preview" src="{{ project.image|thumbnail_url:'project_img' }}"></a>
                                 
                                 <div class="project-info ml-3">
                                     <h4>{{project.name}}</h4>
@@ -528,28 +533,28 @@
                                 <img src="https://images-na.ssl-images-amazon.com/images/I/51-n3NFOZwL.png" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
                                     <h4>Tic-tac-toe</h4>
-                                <a href="">Check the project</a>
+                                <a href="#">Check the project</a>
                                 </div>
                             </div>
                             <div class="project-temp d-flex ml-sm-5 mt-3">
                                 <img src="https://us.123rf.com/450wm/jovanas/jovanas1907/jovanas190700399/128231634-film-reel-icon-the-video-icon-movie-symbol-on-dark-background.jpg?ver=6" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
                                     <h4>Movie App</h4>
-                                <a href="">Check the project</a>
+                                <a href="#">Check the project</a>
                                 </div>
                             </div>
                             <div class="project-temp d-flex ml-sm-5 mt-3">
                                 <img src="https://images-na.ssl-images-amazon.com/images/I/419wjp7euJL.png" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
                                     <h4>Lyrics app</h4>
-                                <a href="">Check the project</a>
+                                <a href="#">Check the project</a>
                                 </div>
                             </div>
                             <div class="project-temp d-flex ml-sm-5 mt-3 mb-3">
                                 <img src="https://i.pinimg.com/originals/06/c4/f7/06c4f70ec5931e2342e703e8a3f0a253.png" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
                                     <h4>Weather app</h4>
-                                <a href="">Check the project</a>
+                                <a href="#">Check the project</a>
                                 </div>
                             </div>
 
