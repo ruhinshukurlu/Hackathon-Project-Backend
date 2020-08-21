@@ -26,7 +26,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 RUN mkdir ${APP_ROOT}
-COPY ./mainProject/ ${APP_ROOT}
+COPY . ${APP_ROOT}
 WORKDIR ${APP_ROOT}
 
 RUN python manage.py collectstatic --noinput
