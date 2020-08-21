@@ -172,15 +172,21 @@
             </ul>
             
             <div class="charts">
+              {% get_student_skill_categories student as skill_categories %}
+              {% for skill_category in skill_categories %}
               <div class="chart chart--dev">
-                <span class="chart__title">Development</span>
+                <span class="chart__title">{{skill_category.title}}</span>
                 <ul class="chart--horiz">
-                    <li class="chart__bar" style="width: 90%;">
+                  {% get_student_skill_by_category student skill_category as student_skills %}
+                  {% for student_skill in student_skills %}
+
+                    <li class="chart__bar {% if not student_skill.is_approved %} is-not-approved-skill {% endif %}" style="width: {{student_skill.percentage}}%;">
                         <span class="chart__label">
-                          Python
+                          {{student_skill.skill.title}}
                         </span>
                       </li>
-                      <li class="chart__bar" style="width: 80%;">
+                    {% endfor %}
+                      <!-- <li class="chart__bar" style="width: 80%;">
                         <span class="chart__label">
                           Django
                         </span>
@@ -230,11 +236,11 @@
                       Grunt / Gulp / Webpack
                     </span>
                   </li>
-                  
+                   -->
                 </ul>
               </div>
-              
-              <div class="chart chart--prod">
+              {% endfor %}
+              <!-- <div class="chart chart--prod">
                 <span class="chart__title">Productivity</span>
                 <ul class="chart--horiz">
                 <li class="chart__bar" style="width: 75%;">
@@ -274,7 +280,7 @@
                   </span>
                 </li>
               </ul>
-              </div>
+              </div> -->
             </div>
         </div>
           

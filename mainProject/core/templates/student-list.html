@@ -62,20 +62,19 @@
             </div>
         </div>
     </header>
-    
-    <section class="img-section" style="background: url('{% static 'images/bootcamp.jpg'%}');background-position: center;background-repeat: no-repeat;background-size: cover;"></section>
+
+    <div class="about-students col-12 w-100 h-50" style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.438) , rgba(0, 0, 0, 0.438)), url('{% static 'images/bootcamp.jpg'%}');background-position: center;background-repeat: no-repeat;background-size: cover; color: white;">
+      <h2 style="padding-top: 100px; padding-bottom: 10px;" class="full bold text-center">Tələbələrimiz</h2>
+      <p>Tələbələrini gələcəyin mütəxəssisləri kimi hazırlayan və onlarla həm akademik,</p>
+          <p>həm professional əməkdaşlıq etməkdə hər zaman maraqlı olan Tech Academy sadəcə</p>
+          <p> tədris mərkəzi yox sizin karyeranınızın başlanğıc və ya dönüş nöqtəsidir.</p>
+  </div>
 
    <div id="main" class="mt-4 mb-5">
         <main>
             <div class="students-container">
                 <div class="row mb-5">
-                    <div class="about-students">
-                        <h2 class="full bold text-center">Tələbələrimiz</h2>
-                        <p>Tələbələrini gələcəyin mütəxəssisləri kimi hazırlayan və onlarla həm akademik, 
-                            həm professional əməkdaşlıq etməkdə hər zaman maraqlı olan Tech Academy sadəcə
-                            bir tədris mərkəzi yox sizin karyeranınızın başlanğıc və ya dönüş nöqtəsidir.
-                        </p>
-                    </div>
+                    
                 </div>
                 <div class="row mb-5">
                     <form action="" class="full d-flex">
@@ -120,6 +119,14 @@
                                         </div>
                                         <div class="d-flex">
                                             <strong>{{student.group.session}}</strong>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="bo">
+                                              Projects: {{student.project_set.count}}
+                                            </div>
+                                            <div>
+                                              <i class="fas fa-star-half-alt" style="color: gold; font-size: 20px;"></i> {{student.user.rating}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
