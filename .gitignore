@@ -2,3 +2,6 @@
 pgdb/
 redisdb/
 __pycache__
+*.sql
+*/*.sql
+*/media/
