@@ -7,8 +7,8 @@ services:
     ports:
       - 5432:5432 # Bind host port 5432 to PostgreSQL port 5432
     volumes:
-      - .mainProject/pgdb:/var/lib/postgresql/data
-    env_file: .env
+      - ./mainProject/pgdb:/var/lib/postgresql/data
+    env_file: ./mainProject/.env
     environment:
       - LC_ALL=C.UTF-8
 
