@@ -17,7 +17,7 @@ services:
     build: .
     restart: "always"
     command: gunicorn --bind 0.0.0.0 -p 8050 food_stories.wsgi
-    env_file: .env
+    env_file: ./mainProject/.env
     volumes:
       - .:/code
       - ./static/:/code/static/
