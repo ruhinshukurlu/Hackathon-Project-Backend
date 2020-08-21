@@ -7,8 +7,8 @@ services:
     ports:
       - 5432:5432 # Bind host port 5432 to PostgreSQL port 5432
     volumes:
-      - ./mainProject/pgdb:/var/lib/postgresql/data
-    env_file: ./mainProject/.env
+      - ./pgdb:/var/lib/postgresql/data
+    env_file: .env
     environment:
       - LC_ALL=C.UTF-8
 
@@ -16,7 +16,7 @@ services:
     container_name: hackathon
     build: .
     restart: "always"
-    env_file: ./mainProject/.env
+    env_file: .env
     volumes:
       - .:/code
       - ./static/:/code/static/
