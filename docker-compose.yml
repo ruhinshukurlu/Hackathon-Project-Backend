@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  postgres:
+    container_name:  pgdb
+    image:           postgres:11
+    ports:
+      - 5432:5432 # Bind host port 5432 to PostgreSQL port 5432
+    volumes:
+      - .mainProject/pgdb:/var/lib/postgresql/data
+    env_file: .env
+    environment:
+      - LC_ALL=C.UTF-8
+
+  web:
+    container_name: hackathon
+    build: .
+    restart: "always"
+    command: gunicorn --bind 0.0.0.0 -p 8050 food_stories.wsgi
+    env_file: .env
+    volumes:
+      - .:/code
+      - ./static/:/code/static/
+      - ./media/:/code/media/
+    ports:
+      - "8050:8050"
+    links:
+      - postgres
+    depends_on:
+      - "postgres"
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
