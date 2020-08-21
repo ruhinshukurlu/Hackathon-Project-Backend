@@ -1,6 +1,19 @@
 version: '3'
 
 services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    image: jwilder/nginx-proxy
+    restart: "always"
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx/vhost/:/etc/nginx/vhost.d:ro
+      - ./nginx/conf.d/client_max_body_size.conf:/etc/nginx/conf.d/client_max_body_size.conf:ro
+      - ./static/:/code/static/
+      - ./media/:/code/media/
+
   postgres:
     container_name:  pgdb
     image:           postgres:11
@@ -21,14 +34,19 @@ services:
       - .:/code
       - ./static/:/code/static/
       - ./media/:/code/media/
+    environment:
+      - VIRTUAL_HOST=34.69.53.132,students.se-pro.site
+      - VIRTUAL_PORT=8050
+      - TIMEOUT=300
+      - HTTP_PORT=8050
+      - STATS_PORT=8051
+      - LANG=C.UTF-8
+      - LANG=en_US.UTF-8
+      - LANGUAGE=en_US:en
+      - LC_ALL=en_US.UTF-8
     ports:
       - "8050:8050"
     links:
       - postgres
     depends_on:
       - "postgres"
-
-networks:
-  default:
-    external:
-      name: nginx-proxy
