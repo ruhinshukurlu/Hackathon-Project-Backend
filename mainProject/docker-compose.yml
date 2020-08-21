@@ -29,24 +29,16 @@ services:
     container_name: hackathon
     build: .
     restart: "always"
-    env_file: .env
+    ports:
+      - "8000:8000"
     volumes:
-      - .:/code
+      - .:/code/
       - ./static/:/code/static/
       - ./media/:/code/media/
-    environment:
-      - VIRTUAL_HOST=34.69.53.132,students.se-pro.site
-      - VIRTUAL_PORT=8050
-      - TIMEOUT=300
-      - HTTP_PORT=8050
-      - STATS_PORT=8051
-      - LANG=C.UTF-8
-      - LANG=en_US.UTF-8
-      - LANGUAGE=en_US:en
-      - LC_ALL=en_US.UTF-8
-    ports:
-      - "8050:8050"
-    links:
-      - postgres
     depends_on:
       - "postgres"
+    env_file: .env
+    environment:
+      - VIRTUAL_HOST=localhost,34.69.53.132,students.se-pro.site
+      - VIRTUAL_PORT=8000
+      - DEBUG=False
