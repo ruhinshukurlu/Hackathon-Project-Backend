@@ -30,3 +30,4 @@ COPY ./mainProject ${APP_ROOT}
 WORKDIR ${APP_ROOT}
 
 RUN python manage.py collectstatic --noinput
+CMD [ "gunicorn", "--bind", "0.0.0.0", "-p", "8050", "mainProject.wsgi" ]
