@@ -142,6 +142,10 @@ body {
   color: #282828;
 }
 
+.is-not-approved-skill{
+  background: linear-gradient(to left, #777ad0, #809af9) !important;
+}
+
 .skills {
   width: 80%;
   max-width: 960px;

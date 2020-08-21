@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext as _
+from account.models import Student
 
-# Create your models here.
 
 class Group(models.Model):
 
@@ -125,4 +125,50 @@ class Level(models.Model):
     def __str__(self):
         return self.title
 
-       
+
+class SkillCategory(models.Model):
+    title = models.CharField(_('Title'), max_length=50)
+    created_at = models.DateTimeField(_("Created date"),auto_now_add=True)
+    updated_at = models.DateTimeField(_("Updated date"), auto_now=True)
+
+    class Meta:
+        verbose_name = _("Skill Category")
+        verbose_name_plural = _("Skill Categories")
+
+    def __str__(self):
+        return self.title
+
+
+class Skill(models.Model):
+    category = models.ForeignKey(SkillCategory, verbose_name=_('Category'), on_delete=models.CASCADE, related_name='skills')
+    title = models.CharField(_('Title'), max_length=50)
+    students = models.ManyToManyField(Student, verbose_name=_('Students'), related_name='skills', through='StudentSkill')
+    created_at = models.DateTimeField(_("Created date"),auto_now_add=True)
+    updated_at = models.DateTimeField(_("Updated date"), auto_now=True)
+
+    class Meta:
+        verbose_name = _("Skill")
+        verbose_name_plural = _("Skills")
+
+    def __str__(self):
+        return self.title
+
+
+class StudentSkill(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='student_skills')
+    skill = models.ForeignKey(Skill, on_delete=models.CASCADE, related_name='student_skills')
+    percentage = models.PositiveIntegerField(_('Percentage'), )
+    is_approved = models.BooleanField(_('is approved'), default=False)
+
+    created_at = models.DateTimeField(_("Created date"),auto_now_add=True)
+    updated_at = models.DateTimeField(_("Updated date"), auto_now=True)
+
+    class Meta:
+        verbose_name = _("Student Skill")
+        verbose_name_plural = _("Student Skills")
+        ordering = ('-percentage',)
+
+    def __str__(self):
+        return f"student: {self.student} skill: {self.skill}"
+
+ 
