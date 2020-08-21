@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'n=_&b+ij1y*r65h6(&*4tq9joct2pni-pl6hwya*ylrc9)v+h%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = not os.environ.get('DEBUG', False)
+PROD = not DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,7 +84,20 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+
+if PROD:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('POSTGRES_DB'),
+            'USER': os.environ.get('POSTGRES_USER'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT')
+        }
+    }
+else:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'techacademy',
@@ -91,8 +105,9 @@ DATABASES = {
         'PASSWORD': 'SvYbm5l5BVhw2WEB7XPYBMKI',
         'HOST': 'localhost',
         'PORT': '5432',
+        }
     }
-}
+
 
 
 # Password validation
@@ -132,10 +147,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_URL = '/static/'
-STATICFILES_DIRS= [
-    os.path.join(BASE_DIR, 'static' )
-]
+
+if PROD:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+else:
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static')
+    ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
