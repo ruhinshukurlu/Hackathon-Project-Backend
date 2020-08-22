@@ -91,46 +91,56 @@
             border: none;
             border-bottom: 2px solid #ccc;
         }
+        @media (max-width: 1500px) {
+          .custom-container{
+            max-width:90%;
+          } 
+          .right{
+            width: 78%;
+          } 
+        }
     </style>
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
-        <a class="navbar-brand ml-5" href="https://www.tech.edu.az/"><img class="logo" src="https://static.wixstatic.com/media/50b774_504c9af5ed1446cda5995409d37fea4e~mv2.png/v1/fill/w_320,h_40,al_c,q_85,usm_0.66_1.00_0.01/Logo%202.webp" alt="logo"></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 justify-content-between">
+        <a class="navbar-brand ml-3" href="https://www.tech.edu.az/"><img class="logo" src="https://static.wixstatic.com/media/50b774_504c9af5ed1446cda5995409d37fea4e~mv2.png/v1/fill/w_320,h_40,al_c,q_85,usm_0.66_1.00_0.01/Logo%202.webp" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav" style="margin-left: calc((100% - 700px) * 0.5);">
-                <li class="nav-item active mr-lg-3">
+        <div class="right" id="navbarSupportedContent">
+            <ul class="navbar-nav" >
+                <li class="nav-item active mr-lg-1">
                     <a class="nav-link" href="#community">ƏSAS SƏHİFƏ<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active mr-lg-3">
+                <li class="nav-item active mr-lg-1">
                     <a class="nav-link" href="#programs">DİSTANT TƏHSİL<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active mr-lg-3">
+                <li class="nav-item active mr-lg-1">
                     <a class="nav-link" href="#about">BOOTCAMP<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active mr-lg-3">
+                <li class="nav-item active mr-lg-1">
                     <a class="nav-link" href="#about">AKADEMİYA<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active mr-lg-3">
+                <li class="nav-item active mr-lg-1">
                   <a class="nav-link" href="{% url 'core:student-list' %}">TƏLƏBƏLƏRIMIZ<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active mr-lg-3">
+                <li class="nav-item active mr-lg-1">
                     <a class="nav-link" href="#about">ƏLAQƏ<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto align-items-start mb-3 mb-lg-0">
-                <li class="nav-item active m-2">
+                <li class="nav-item active ">
                     <a class="nav-link" href="{% url 'account:register' %}">Qeydiyyat<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active m-2">
+                <li class="nav-item active">
                     <a class="nav-link" href="{% url 'account:login' %}">Daxil Ol<span class="sr-only">(current)</span></a>
                 </li> 
-                <li class="nav-item active m-2">
+                <li class="nav-item active ">
                     <div class="social-links-box">
                         <a class="social-link-a" href="#"><i class="fab fa-facebook-f"></i></a>
                         <a class="social-link-a" href="#"><i class="fab fa-instagram"></i></a>
@@ -378,7 +388,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="info-text pr-5 mt-4">
+                            <p class="info-text mt-4">
                                 {{student.user.bio}}
                             </p>
                             <div class="links mt-4">
@@ -396,9 +406,8 @@
 
         <div class="other-info">
             <div class="custom-container">
-                <div class="row">
-                    <div class="col-lg-9">
-                        <div class="row justify-content-center mb-5 pb-3 border-bottom">
+                <div class="row full">
+                        <div class="row full justify-content-center mb-5 pb-3 border-bottom">
                             <div class="months-container justify-content-center">
                                 <div class="start-finish-box mr-4">
                                     <button style="outline: none;" class="start-finish-btn">
@@ -430,7 +439,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-4">
+                        <div class="row mb-4 full ">
                             
                             <div class="col-md-4 col-12 mt-5 mt-sm-0 text-center">
                                 <p id="continuity_percent" class="bold">Continuity : 80%</p>
@@ -452,7 +461,7 @@
                             </div>
                         </div>
                         {% for month in months %}
-                            <div class="row lesson-details" id='{{month.id}}' >
+                            <div class="row full lesson-details" id='{{month.id}}' >
                                 <div class="col-6">
                                     <ul>
                                         <li class="mb-3">
@@ -496,13 +505,18 @@
                                 </div>
                             </div>
                         {% endfor %}
-                        <div>
-                            <canvas id="myChart"> </canvas>
+                        <div class="row full  border-top">
+                            <canvas id="myChart"></canvas>
                         </div>
-                        <div class="about">
+
+
+                    </div>
+                    <div class="row full">
+                        <div class="col-lg-8 about">
+
                             <div class="comment-container">
                                 <div class="comments">
-                                    <h3 class="ml-3 mt-5 bold pb-2 border-bottom">Comments</h3>
+                                    <h3 class="ml-3 bold pb-2 border-bottom">Comments</h3>
                                     <div class="comment-temp ml-3 mt-4">
                                         <img src="{% static 'images/comment-img.png' %}" alt="Commentator profil picture" style="width: 37px; border-radius: 50%;">
                                         <b class="commentator ml-2">Murad Aghazada. <small class="c-time">Sep 9th at 8:24pm</small></b>
@@ -533,16 +547,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 projects-container">
+                        <div class="col-lg-4 projects-container">
                         <div class="projects">
                             <h3 class="bold text-center full mt-2 mb-4 pb-2">Personal Projects</h3>
                             {% for project in projects %}
-                            <div class="project-temp d-flex ml-sm-5 mt-3">
+                            <div class="project-temp d-flex">
 
                                 <a data-fancybox="gallery" data-caption="myProject is an innovative software solution for managing documents and project data in distributed projects"  href="{{project.image.url}}">
                                     <img class="project-preview" src="{{ project.image|thumbnail_url:'project_img' }}"></a>
-                                
+
                                 <div class="project-info ml-3">
                                     <h4>{{project.name}}</h4>
                                 <a href="{{project.link}}" target="blank">Check the project</a>
@@ -550,28 +563,28 @@
                             </div>
                             {% endfor %}
 
-                            <div class="project-temp d-flex ml-sm-5 mt-3">
+                            <div class="project-temp d-flex">
                                 <img src="https://images-na.ssl-images-amazon.com/images/I/51-n3NFOZwL.png" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
                                     <h4>Tic-tac-toe</h4>
                                 <a href="#">Check the project</a>
                                 </div>
                             </div>
-                            <div class="project-temp d-flex ml-sm-5 mt-3">
+                            <div class="project-temp d-flex">
                                 <img src="https://us.123rf.com/450wm/jovanas/jovanas1907/jovanas190700399/128231634-film-reel-icon-the-video-icon-movie-symbol-on-dark-background.jpg?ver=6" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
                                     <h4>Movie App</h4>
                                 <a href="#">Check the project</a>
                                 </div>
                             </div>
-                            <div class="project-temp d-flex ml-sm-5 mt-3">
+                            <div class="project-temp d-flex">
                                 <img src="https://images-na.ssl-images-amazon.com/images/I/419wjp7euJL.png" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
                                     <h4>Lyrics app</h4>
                                 <a href="#">Check the project</a>
                                 </div>
                             </div>
-                            <div class="project-temp d-flex ml-sm-5 mt-3 mb-3">
+                            <div class="project-temp d-flex">
                                 <img src="https://i.pinimg.com/originals/06/c4/f7/06c4f70ec5931e2342e703e8a3f0a253.png" alt="Project preview" class="project-preview">
                                 <div class="project-info ml-3">
                                     <h4>Weather app</h4>
@@ -581,6 +594,8 @@
 
                         </div>
                     </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -798,6 +813,92 @@
                 }
             });
         }
+
+            // var ctx = document.getElementById('myChart').getContext('2d');
+        const labels = [...document.querySelectorAll('.month-btn')].map(element=>{
+            return element.textContent
+        });
+        labels.unshift('0 Month')
+        console.log(labels)
+		var lineChartData = {
+			labels: labels,
+			datasets: [{
+				label: 'Continuity',
+				borderColor: '#32C31B',
+				backgroundColor: '#32C31B',
+				fill: false,
+				data: [1,2,3,4,5,6],
+				yAxisID: 'y-axis-1',
+			}, {
+				label: 'Tasks',
+				borderColor: '#f39c12',
+				backgroundColor: '#f39c12',
+				fill: false,
+				data: [7,6,42,3,2,65],
+				yAxisID: 'y-axis-2'
+			}, {
+				label: 'Activity',
+				borderColor: '#9B59B6',
+				backgroundColor: '#9B59B6',
+				fill: false,
+				data: [45,12,56],
+				yAxisID: 'y-axis-3'
+			}]
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('myChart').getContext('2d');
+			window.myLine = Chart.Line(ctx, {
+				data: lineChartData,
+				options: {
+					responsive: true,
+					hoverMode: 'index',
+					stacked: false,
+					title: {
+						display: true,
+						text: 'Student Activity By Month'
+					},
+					scales: {
+						yAxes: [{
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'left',
+							id: 'y-axis-1',
+						}, {
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'right',
+							id: 'y-axis-2',
+
+							// grid line settings
+							gridLines: {
+								drawOnChartArea: false, // only want the grid lines for one axis to show up
+							},
+						}, {
+							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+							display: true,
+							position: 'right',
+							id: 'y-axis-3',
+
+							// grid line settings
+							gridLines: {
+								drawOnChartArea: false, // only want the grid lines for one axis to show up
+							},
+						}],
+					}
+				}
+			});
+		};
+
+		// document.getElementById('randomizeData').addEventListener('click', function() {
+		// 	lineChartData.datasets.forEach(function(dataset) {
+		// 		dataset.data = dataset.data.map(function() {
+		// 			return randomScalingFactor();
+		// 		});
+		// 	});
+        //
+		// 	window.myLine.update();
+		// });
 
 
         {#callChart();#}

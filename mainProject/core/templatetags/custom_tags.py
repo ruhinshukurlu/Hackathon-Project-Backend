@@ -27,5 +27,4 @@ def get_student_details(student, month):
         'student_task': student_task,
         'activity': activity
     }
-    print(context)
     return context
