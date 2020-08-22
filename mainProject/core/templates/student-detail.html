@@ -407,7 +407,19 @@
                                     <span class="text-center">12 February Started <br/> Tech Academy</span>
                                 </div>
                                 {% for month in months %}
-                                    <button style="outline: none;" data-target="{{month.id}}" class="month-btn ml-2 mr-2">{{month.get_title_display}} </button>
+                                    {% get_student_details student month as student_details %}
+                                    <button style="outline: none;" data-target="{{month.id}}"
+                                data-continuity="{{ student_details.continuity.percentage }}"
+                                 data-student_task_percentage="{{ student_details.student_task.percentage }}"
+                                 data-student_task_clean_code="{{ student_details.student_task.clean_code }}"
+                                 data-student_task_practice="{{ student_details.student_task.practice }}"
+                                 data-student_task_algorithm="{{ student_details.student_task.algorithm }}"
+
+                                 data-activity_percentage="{{ student_details.activity.percentage }}"
+                                 data-activity_creativity="{{ student_details.activity.creativity }}"
+                                 data-activity_problem_solving="{{ student_details.activity.problem_solving }}"
+                                 data-activity_responsibility="{{ student_details.activity.responsibility }}"
+                                            class="month-btn ml-2 mr-2">{{month.get_title_display}} </button>
                                 {% endfor %}
       
                                 <div class="start-finish-box ml-4">
@@ -421,26 +433,26 @@
                         <div class="row mb-4">
                             
                             <div class="col-md-4 col-12 mt-5 mt-sm-0 text-center">
-                                <p class="bold">Continuity : 80%</p>
+                                <p id="continuity_percent" class="bold">Continuity : 80%</p>
                                 <div class="chart-wrapper">
                                     <canvas id="continuityChart"></canvas>
                                 </div>
                             </div>
                             <div class="col-md-4 col-12 mt-5 mt-sm-0 text-center">
-                                <p class="bold">Tasks : 80/100</p>
+                                <p id="task_percent" class="bold">Tasks : 80/100</p>
                                 <div class="chart-wrapper">
                                     <canvas id="taskChart"></canvas>
                                 </div>
                             </div>
                             <div class="col-md-4 col-12 mt-5 mt-sm-0 text-center">
-                                <p class="bold">Activity : 80%</p>
+                                <p id="activity_percent" class="bold">Activity : 80%</p>
                                 <div class="chart-wrapper">
                                     <canvas id="activityChart"></canvas>
                                 </div>
                             </div>
                         </div>
                         {% for month in months %}
-                            <div class="row lesson-details" id='{{month.id}}'>
+                            <div class="row lesson-details" id='{{month.id}}' >
                                 <div class="col-6">
                                     <ul>
                                         <li class="mb-3">
@@ -484,6 +496,9 @@
                                 </div>
                             </div>
                         {% endfor %}
+                        <div>
+                            <canvas id="myChart"> </canvas>
+                        </div>
                         <div class="about">
                             <div class="comment-container">
                                 <div class="comments">
@@ -705,12 +720,12 @@
         }
         </script>
     <script>
-        function callChart() {
+        function callChart(continuity_list, task_percent_list, activity_percent) {
             var ctx = document.getElementById("continuityChart").getContext('2d');
             let colorHex = ['#32C31B ', '#FF0000']
             let labels = ['At lesson','Absent']
 
-            let Continuity =  [Math.floor(Math.random() * 100) + 50,Math.floor(Math.random() * 100) + 10]
+            let Continuity =  continuity_list
             var myDoughnutChart = new Chart(ctx, {
                 type: 'pie',
 
@@ -733,7 +748,7 @@
             var ctx_2 = document.getElementById("taskChart").getContext('2d');
             var data_2 = {
                 datasets: [{
-                    data: [Math.floor(Math.random() * 100) + 10, Math.floor(Math.random() * 100) + 20, Math.floor(Math.random() * 100) + 30],
+                    data: task_percent_list,
                     backgroundColor: [
                         '#3c8dbc',
                         '#f56954',
@@ -760,7 +775,7 @@
             var ctx_3 = document.getElementById("activityChart").getContext('2d');
             var data_3 = {
                 datasets: [{
-                    data: [Math.floor(Math.random() * 100) + 10, Math.floor(Math.random() * 100) + 20, Math.floor(Math.random() * 100) + 30],
+                    data: activity_percent,
                     backgroundColor: [
                         '#45B39D',
                         '#9B59B6',
@@ -784,16 +799,41 @@
             });
         }
 
-        callChart()
 
-        $('.lesson-details').not('#1').css('display','none')
+        {#callChart();#}
+
+        $('.lesson-details').not('#1').css('display','none');
         $('.month-btn').click(function(){
-            callChart()
+
+            let continuity = $(this).data('continuity')||Math.floor(Math.random() * 100);
+
+            let student_task_percentage = $(this).data('student_task_percentage') || Math.floor(Math.random() * 100);
+            let student_task_clean_code = $(this).data('student_task_clean_code') || Math.floor(Math.random() * 100);
+            let student_task_practice = $(this).data('student_task_practice')|| Math.floor(Math.random() * 100);
+            let student_task_algorithm = $(this).data('student_task_algorithm')||Math.floor(Math.random() * 100);
+
+            let activity_percentage = $(this).data('activity_percentage')||Math.floor(Math.random() * 100);
+            let activity_creativity = $(this).data('activity_creativity')||Math.floor(Math.random() * 100);
+            let activity_problem_solving = $(this).data('activity_problem_solving')||Math.floor(Math.random() * 100);
+            let activity_responsibility = $(this).data('activity_responsibility')||Math.floor(Math.random() * 100);
+
+            $('#continuity_percent').text(`Continuity ${continuity}%`);
+            $('#task_percent').text(`Tasks ${student_task_percentage}/100`);
+            $('#activity_percent').text(`Activity ${activity_percentage}%`);
+
+            continuity = parseInt(continuity)
+            let continuity_list = [100-continuity, continuity];
+            let task_percent_list = [student_task_clean_code, student_task_practice, student_task_algorithm ];
+            let activity_percent = [activity_creativity, activity_problem_solving, activity_responsibility ];
+            console.log( continuity_list,task_percent_list, activity_percent)
+            callChart(continuity_list, task_percent_list, activity_percent);
+
+
             console.log($(this).data('target'));
             $('.lesson-details').css('display','none')
             $('.lesson-details').filter(`#${$(this).data('target')}`).css('display','flex')
         })
-
+$('.month-btn:eq(0)').trigger('click');
     </script>
 
   

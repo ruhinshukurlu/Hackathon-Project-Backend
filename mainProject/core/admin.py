@@ -5,7 +5,8 @@ from account.models import Student
 User = get_user_model()
 
 
-admin.site.register([Session, Subject, Month, Comment, Level, SkillCategory, Skill])
+admin.site.register([Session, Subject, Month, Comment, Level, SkillCategory, Skill, StudentContinuity,
+                     StudentActivity, StudentTask])
 
 
 @admin.register(Project)
@@ -30,7 +31,7 @@ class GroupAdmin(admin.ModelAdmin):
 
     def get_readonly_fields(self, request, *args, **kwargs):
         if request.user.groups.filter(name="teacher").exists():
-            return ('teacher', 'session', 'start_date', )
+            return 'teacher', 'session', 'start_date',
         return super().get_readonly_fields(request, *args, **kwargs)
 
 @admin.register(StudentSkill)
@@ -84,4 +85,4 @@ class UserSocialMediaLinkAdmin(admin.ModelAdmin):
             context['adminform'].form.fields['user'].queryset = User.objects.filter(pk=request.user.pk)
         return super().render_change_form(request, context, *args, **kwargs)
 
-# Register your models here.
+

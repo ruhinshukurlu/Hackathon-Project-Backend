@@ -171,4 +171,51 @@ class StudentSkill(models.Model):
     def __str__(self):
         return f"student: {self.student} skill: {self.skill}"
 
- 
+
+class StudentContinuity(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='continuities')
+    month = models.ForeignKey(Month, on_delete=models.CASCADE, related_name='continuities')
+    percentage = models.IntegerField(_('Percentage'))
+
+    class Meta:
+        verbose_name = _("Student Continuity")
+        verbose_name_plural = _("Student Continuities")
+        ordering = ('month',)
+
+    def __str__(self):
+        return f"student: {self.student} mount: {self.month} percentage: {self.percentage}"
+
+
+class StudentTask(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='student_tasks')
+    month = models.ForeignKey(Month, on_delete=models.CASCADE, related_name='student_tasks')
+    percentage = models.IntegerField(_('Percentage'))
+    clean_code = models.IntegerField(_('clean_code'))
+    practice = models.IntegerField(_('Practice'))
+    algorithm = models.IntegerField(_('Algorithm'))
+
+    class Meta:
+        verbose_name = _("Student Task")
+        verbose_name_plural = _("Student Tasks")
+        ordering = ('month',)
+
+    def __str__(self):
+        return f"student: {self.student} mount: {self.month} percentage: {self.percentage}"
+
+
+class StudentActivity(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='activities')
+    month = models.ForeignKey(Month, on_delete=models.CASCADE, related_name='activities')
+    percentage = models.IntegerField(_('Percentage'))
+    creativity = models.IntegerField(_('Creativity'))
+    problem_solving = models.IntegerField(_('Problem solving'))
+    responsibility = models.IntegerField(_('Responsibility'))
+
+    class Meta:
+        verbose_name = _("Student Activity")
+        verbose_name_plural = _("Student Activities")
+        ordering = ('month',)
+
+    def __str__(self):
+        return f"student: {self.student} mount: {self.month} percentage: {self.percentage}"
+

@@ -16,3 +16,16 @@ def get_student_skill_categories(student):
 @register.simple_tag
 def get_student_skill_by_category(student, category):
     return student.student_skills.filter(skill__category=category)
+
+@register.simple_tag
+def get_student_details(student, month):
+    continuity = student.continuities.filter(month=month).first()
+    student_task = student.student_tasks.filter(month=month).first()
+    activity = student.activities.filter(month=month).first()
+    context = {
+        'continuity': continuity,
+        'student_task': student_task,
+        'activity': activity
+    }
+    print(context)
+    return context
