@@ -170,8 +170,8 @@ a{
     border: transparent;
     font-size: 14px;
     font-weight: 500;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 }
 
 .start-finish-box{
@@ -183,8 +183,8 @@ a{
 .start-finish-btn{
     background-color: #1e8aee;
     color: #fff;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     font-size: 24px;
 }
@@ -226,5 +226,22 @@ footer a:hover{
 
 #main{
     min-height: 800px;
+}
+
+.project-temp{
+    margin: 10px;
+}
+
+.lesson-details .col-6{
+    display: flex;
+    justify-content: center;
+}
+
+.lesson-details ul{
+    width: 60%;
+}
+
+.nav-link{
+    font-size: 14px;
 }
 

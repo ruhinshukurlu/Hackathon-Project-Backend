@@ -1,0 +1,792 @@
+[
+{
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "student",
+        "permissions": [
+            [
+                "view_student",
+                "account",
+                "student"
+            ],
+            [
+                "change_user",
+                "account",
+                "user"
+            ],
+            [
+                "view_user",
+                "account",
+                "user"
+            ],
+            [
+                "add_project",
+                "core",
+                "project"
+            ],
+            [
+                "change_project",
+                "core",
+                "project"
+            ],
+            [
+                "delete_project",
+                "core",
+                "project"
+            ],
+            [
+                "view_project",
+                "core",
+                "project"
+            ],
+            [
+                "add_usersocialmedialink",
+                "core",
+                "usersocialmedialink"
+            ],
+            [
+                "change_usersocialmedialink",
+                "core",
+                "usersocialmedialink"
+            ],
+            [
+                "delete_usersocialmedialink",
+                "core",
+                "usersocialmedialink"
+            ],
+            [
+                "view_usersocialmedialink",
+                "core",
+                "usersocialmedialink"
+            ]
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+        "name": "teacher",
+        "permissions": [
+            [
+                "view_student",
+                "account",
+                "student"
+            ],
+            [
+                "change_user",
+                "account",
+                "user"
+            ],
+            [
+                "view_user",
+                "account",
+                "user"
+            ],
+            [
+                "change_group",
+                "core",
+                "group"
+            ],
+            [
+                "view_group",
+                "core",
+                "group"
+            ],
+            [
+                "add_subject",
+                "core",
+                "subject"
+            ],
+            [
+                "change_subject",
+                "core",
+                "subject"
+            ],
+            [
+                "view_subject",
+                "core",
+                "subject"
+            ]
+        ]
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "1kf31vj91kb3xk3oe4y871xc94x4c5mf",
+    "fields": {
+        "session_data": "MGM4ZDM2Mzc0OTMwYTU3OTg1NWRjZDFhOWEwMjc0ZmE4NjlkMzQyZTp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIyOGRkYzI3YjA1NzNkMDRhMGE1NzE2YTE4MjI0ZmU0MDliN2NmZjI0In0=",
+        "expire_date": "2020-08-29T12:16:28.982Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "5nr7aq8f5bz81z2vcftzjlmpubevt4ei",
+    "fields": {
+        "session_data": "ZjBlNjBlYWMwYmNhNWI1ODk5N2FhYTliZjkxMzIyYmVkZmNiOTJhYTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmZGQxMWFmOTZiMDJkZGQ4YTEyZjdmZjU3ODM3YzFlOWRhMTkxOTg2In0=",
+        "expire_date": "2020-09-03T12:06:22.152Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "dnf0cnyaabfhot2qu2ohej03ob1043fh",
+    "fields": {
+        "session_data": "MGQzYzk0ZGMzMmJkYmRiY2NiYmRjNmQ1ZDc2YjU1NGIxMzYyODVmYzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJjOGE0MmNjNDgwZmVkYTFjMGM0ZTdkMDZmYmEwYTI1NDhiMjI5N2QwIn0=",
+        "expire_date": "2020-08-29T09:55:30.440Z"
+    }
+},
+{
+    "model": "easy_thumbnails.source",
+    "pk": 1,
+    "fields": {
+        "storage_hash": "f9bde26a1556cd667f742bd34ec7c55e",
+        "name": "project-photos/memory-game.png",
+        "modified": "2020-08-15T06:00:33.250Z"
+    }
+},
+{
+    "model": "easy_thumbnails.source",
+    "pk": 2,
+    "fields": {
+        "storage_hash": "f9bde26a1556cd667f742bd34ec7c55e",
+        "name": "project-photos/20200815_103917.png",
+        "modified": "2020-08-15T06:42:59.689Z"
+    }
+},
+{
+    "model": "easy_thumbnails.thumbnail",
+    "pk": 1,
+    "fields": {
+        "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+        "name": "project-photos/memory-game.png.100x100_q85_crop.jpg",
+        "modified": "2020-08-14T16:45:47.428Z",
+        "source": 1
+    }
+},
+{
+    "model": "easy_thumbnails.thumbnail",
+    "pk": 2,
+    "fields": {
+        "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+        "name": "project-photos/memory-game.png.100x100_q85.jpg",
+        "modified": "2020-08-15T06:00:33.254Z",
+        "source": 1
+    }
+},
+{
+    "model": "easy_thumbnails.thumbnail",
+    "pk": 3,
+    "fields": {
+        "storage_hash": "d26becbf46ac48eda79c7a39a13a02dd",
+        "name": "project-photos/20200815_103917.png.100x100_q85_crop.png",
+        "modified": "2020-08-15T06:42:59.693Z",
+        "source": 2
+    }
+},
+{
+    "model": "account.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$g42j7kzAcwb6$lD9YmYVVzCGyl9/cgHXzjHhey6R267ECtilJVUcU1o0=",
+        "last_login": "2020-08-20T12:06:22.150Z",
+        "is_superuser": true,
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@gmail.com",
+        "bio": null,
+        "profile_img": "",
+        "date_joined": "2020-08-14T16:09:37.795Z",
+        "is_staff": true,
+        "is_active": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$DMdRIB1XOqtw$G+iqf81yo6a0PjABTpHfraxZ6eYYM+D5XIYXb3gsRhg=",
+        "last_login": "2020-08-15T12:15:21.776Z",
+        "is_superuser": false,
+        "first_name": "Ruhid",
+        "last_name": "Shukurlu",
+        "email": "ruhidshukurlu@gmail.com",
+        "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containingLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing",
+        "profile_img": "profile-pictures/2.jpg",
+        "date_joined": "2020-08-14T16:10:33.272Z",
+        "is_staff": true,
+        "is_active": true,
+        "groups": [
+            [
+                "student"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$Yiu3Q0uK6yyW$OK1uowfk69USMYKGJqPgbLYlgLNVZuPWY7Z+foqPNS8=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "Murad",
+        "last_name": "Memmedli",
+        "email": "murad@gmail.com",
+        "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "profile_img": "profile-pictures/student-2.jpg",
+        "date_joined": "2020-08-14T16:11:18.522Z",
+        "is_staff": true,
+        "is_active": true,
+        "groups": [
+            [
+                "student"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$KJyUy0DL2hBA$nA+Q/RBS6ltcBif0xuTD6RuaxapMNiQFuYhhTCUt4Y4=",
+        "last_login": "2020-08-15T12:16:28.981Z",
+        "is_superuser": false,
+        "first_name": "Xeyal",
+        "last_name": "Yediyarov",
+        "email": "xeyal@gmail.com",
+        "bio": "",
+        "profile_img": "",
+        "date_joined": "2020-08-14T16:12:04.589Z",
+        "is_staff": true,
+        "is_active": true,
+        "groups": [
+            [
+                "teacher"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$t4zTNHstIyEy$l779Fz5hCvzfR60ytVyAnro7wVUk1QBAu5ScOfWdYoY=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "Idris",
+        "last_name": "Shabanli",
+        "email": "idris@gmail.com",
+        "bio": "",
+        "profile_img": "",
+        "date_joined": "2020-08-14T16:19:57.735Z",
+        "is_staff": true,
+        "is_active": true,
+        "groups": [
+            [
+                "teacher"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$180000$iUwZ7ajUmDeW$G0x0o0OL1TDuaQkef2oOxEYYxNNz5zr8YYn6Iap9vHY=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "Sara",
+        "last_name": "Ahmedova",
+        "email": "sara@gmail.com",
+        "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "profile_img": "profile-pictures/student-girl.jpg",
+        "date_joined": "2020-08-14T16:32:29.049Z",
+        "is_staff": true,
+        "is_active": true,
+        "groups": [
+            [
+                "student"
+            ]
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.ratinguser",
+    "pk": 1,
+    "fields": {
+        "owner": [
+            "ruhidshukurlu@gmail.com"
+        ],
+        "user": [
+            "ruhidshukurlu@gmail.com"
+        ],
+        "point": "4.0"
+    }
+},
+{
+    "model": "account.ratinguser",
+    "pk": 2,
+    "fields": {
+        "owner": [
+            "ruhidshukurlu@gmail.com"
+        ],
+        "user": [
+            "murad@gmail.com"
+        ],
+        "point": "3.0"
+    }
+},
+{
+    "model": "account.ratinguser",
+    "pk": 3,
+    "fields": {
+        "owner": [
+            "xeyal@gmail.com"
+        ],
+        "user": [
+            "ruhidshukurlu@gmail.com"
+        ],
+        "point": "3.0"
+    }
+},
+{
+    "model": "account.student",
+    "pk": 2,
+    "fields": {
+        "group": 1,
+        "level": 1,
+        "last_month": 4
+    }
+},
+{
+    "model": "account.student",
+    "pk": 3,
+    "fields": {
+        "group": 2,
+        "level": 2,
+        "last_month": 3
+    }
+},
+{
+    "model": "account.student",
+    "pk": 6,
+    "fields": {
+        "group": 1,
+        "level": 2,
+        "last_month": 4
+    }
+},
+{
+    "model": "account.teacher",
+    "pk": 4,
+    "fields": {}
+},
+{
+    "model": "account.teacher",
+    "pk": 5,
+    "fields": {}
+},
+{
+    "model": "core.group",
+    "pk": 1,
+    "fields": {
+        "name": "Alligator",
+        "teacher": 4,
+        "session": 1,
+        "current_month": 4,
+        "start_date": "2020-02-03",
+        "end_date": "2020-07-10"
+    }
+},
+{
+    "model": "core.group",
+    "pk": 2,
+    "fields": {
+        "name": "TireX",
+        "teacher": 5,
+        "session": 1,
+        "current_month": 2,
+        "start_date": "2020-06-08",
+        "end_date": "2020-08-19"
+    }
+},
+{
+    "model": "core.group",
+    "pk": 3,
+    "fields": {
+        "name": "Docker",
+        "teacher": 5,
+        "session": 5,
+        "current_month": 3,
+        "start_date": "2020-05-13",
+        "end_date": "2020-08-19"
+    }
+},
+{
+    "model": "core.session",
+    "pk": 1,
+    "fields": {
+        "name": "Full Stack Development"
+    }
+},
+{
+    "model": "core.session",
+    "pk": 2,
+    "fields": {
+        "name": "QA Automation"
+    }
+},
+{
+    "model": "core.session",
+    "pk": 3,
+    "fields": {
+        "name": "Frontend Development"
+    }
+},
+{
+    "model": "core.session",
+    "pk": 4,
+    "fields": {
+        "name": "Backend Development"
+    }
+},
+{
+    "model": "core.session",
+    "pk": 5,
+    "fields": {
+        "name": "React Js"
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 1,
+    "fields": {
+        "title": "Html",
+        "session": 1,
+        "month": 1
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 2,
+    "fields": {
+        "title": "Css",
+        "session": 1,
+        "month": 1
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 3,
+    "fields": {
+        "title": "Javascript",
+        "session": 1,
+        "month": 1
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 4,
+    "fields": {
+        "title": "Jquery",
+        "session": 1,
+        "month": 1
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 5,
+    "fields": {
+        "title": "Responsive Design",
+        "session": 1,
+        "month": 1
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 6,
+    "fields": {
+        "title": "Python",
+        "session": 1,
+        "month": 2
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 7,
+    "fields": {
+        "title": "Python Sets vs Dictionary",
+        "session": 1,
+        "month": 2
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 8,
+    "fields": {
+        "title": "Python Strings",
+        "session": 1,
+        "month": 2
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 9,
+    "fields": {
+        "title": "Python Flow Control",
+        "session": 1,
+        "month": 2
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 10,
+    "fields": {
+        "title": "Python functions",
+        "session": 1,
+        "month": 2
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 11,
+    "fields": {
+        "title": "Python Files",
+        "session": 1,
+        "month": 3
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 12,
+    "fields": {
+        "title": "Python exception",
+        "session": 1,
+        "month": 3
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 13,
+    "fields": {
+        "title": "Python Data Structures",
+        "session": 1,
+        "month": 2
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 14,
+    "fields": {
+        "title": "Python Object & Class",
+        "session": 1,
+        "month": 3
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 15,
+    "fields": {
+        "title": "Python Generators, iterator, decorators",
+        "session": 1,
+        "month": 3
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 16,
+    "fields": {
+        "title": "TDD - Test Driven Development",
+        "session": 1,
+        "month": 3
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 17,
+    "fields": {
+        "title": "Database",
+        "session": 1,
+        "month": 3
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 18,
+    "fields": {
+        "title": "Relationships in Database Design",
+        "session": 1,
+        "month": 3
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 19,
+    "fields": {
+        "title": "Django",
+        "session": 1,
+        "month": 4
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 20,
+    "fields": {
+        "title": "Django Creating Views",
+        "session": 1,
+        "month": 4
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 21,
+    "fields": {
+        "title": "Template filters and tags in Django",
+        "session": 1,
+        "month": 4
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 22,
+    "fields": {
+        "title": "Understanding Django ORM",
+        "session": 1,
+        "month": 4
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 23,
+    "fields": {
+        "title": "Relationships",
+        "session": 1,
+        "month": 4
+    }
+},
+{
+    "model": "core.subject",
+    "pk": 24,
+    "fields": {
+        "title": "Working Django forms",
+        "session": 1,
+        "month": 4
+    }
+},
+{
+    "model": "core.month",
+    "pk": 1,
+    "fields": {
+        "title": 1
+    }
+},
+{
+    "model": "core.month",
+    "pk": 2,
+    "fields": {
+        "title": 2
+    }
+},
+{
+    "model": "core.month",
+    "pk": 3,
+    "fields": {
+        "title": 3
+    }
+},
+{
+    "model": "core.month",
+    "pk": 4,
+    "fields": {
+        "title": 4
+    }
+},
+{
+    "model": "core.project",
+    "pk": 1,
+    "fields": {
+        "name": "Memory Game",
+        "student": 2,
+        "image": "project-photos/memory-game.png",
+        "link": "https://github.com/ruhinshukurlu/Memory-Game"
+    }
+},
+{
+    "model": "core.project",
+    "pk": 2,
+    "fields": {
+        "name": "Word Game",
+        "student": 2,
+        "image": "project-photos/20200815_103917.png",
+        "link": "https://github.com/ruhinshukurlu/Word-Game"
+    }
+},
+{
+    "model": "core.usersocialmedialink",
+    "pk": 1,
+    "fields": {
+        "user": [
+            "ruhidshukurlu@gmail.com"
+        ],
+        "name": "facebook",
+        "url": "https://www.facebook.com/"
+    }
+},
+{
+    "model": "core.usersocialmedialink",
+    "pk": 2,
+    "fields": {
+        "user": [
+            "ruhidshukurlu@gmail.com"
+        ],
+        "name": "github",
+        "url": "https://github.com/"
+    }
+},
+{
+    "model": "core.usersocialmedialink",
+    "pk": 3,
+    "fields": {
+        "user": [
+            "ruhidshukurlu@gmail.com"
+        ],
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/"
+    }
+},
+{
+    "model": "core.level",
+    "pk": 1,
+    "fields": {
+        "title": "Juniour Front-end"
+    }
+},
+{
+    "model": "core.level",
+    "pk": 2,
+    "fields": {
+        "title": "Juniour Backend Developer"
+    }
+},
+{
+    "model": "core.level",
+    "pk": 3,
+    "fields": {
+        "title": "Juniour React Developer"
+    }
+},
+{
+    "model": "core.level",
+    "pk": 4,
+    "fields": {
+        "title": "Python Developer"
+    }
+}

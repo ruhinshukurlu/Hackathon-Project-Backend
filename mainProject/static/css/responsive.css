@@ -1,0 +1,21 @@
+@media (max-width: 1500px) {
+    header .custom-container{
+        max-width: 90%;
+    }
+
+    header .right{
+        max-width: 80%;
+    }
+    .student-infos{
+        font-size: 13px;
+    }
+    .info-text {
+        font-size:15px;
+    }
+    .main{
+        margin-top: 100px;
+    }
+    .right{
+        width: 75%;
+    }
+}
