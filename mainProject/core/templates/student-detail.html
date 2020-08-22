@@ -506,7 +506,7 @@
                             </div>
                         {% endfor %}
                         <div class="row full  border-top">
-                            <canvas id="myChart"></canvas>
+                            <canvas height="130" id="myChart"></canvas>
                         </div>
 
 
@@ -818,7 +818,7 @@
         const labels = [...document.querySelectorAll('.month-btn')].map(element=>{
             return element.textContent
         });
-        labels.unshift('0 Month')
+        // labels.unshift('0 Month')
         console.log(labels)
 		var lineChartData = {
 			labels: labels,
@@ -827,21 +827,21 @@
 				borderColor: '#32C31B',
 				backgroundColor: '#32C31B',
 				fill: false,
-				data: [1,2,3,4,5,6],
+				data: [70, 87,45, 55, 86, 75],
 				yAxisID: 'y-axis-1',
 			}, {
 				label: 'Tasks',
 				borderColor: '#f39c12',
 				backgroundColor: '#f39c12',
 				fill: false,
-				data: [7,6,42,3,2,65],
+				data: [64, 43, 65, 69, 75, 86],
 				yAxisID: 'y-axis-2'
 			}, {
 				label: 'Activity',
 				borderColor: '#9B59B6',
 				backgroundColor: '#9B59B6',
 				fill: false,
-				data: [45,12,56],
+				data: [59, 65, 54, 70, 64, 67],
 				yAxisID: 'y-axis-3'
 			}]
 		};
@@ -864,12 +864,17 @@
 							display: true,
 							position: 'left',
 							id: 'y-axis-1',
+                            ticks : {
+                                beginAtZero : true
+                            }
 						}, {
 							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
 							display: true,
 							position: 'right',
 							id: 'y-axis-2',
-
+                            ticks : {
+                                beginAtZero : true
+                            },
 							// grid line settings
 							gridLines: {
 								drawOnChartArea: false, // only want the grid lines for one axis to show up
@@ -879,7 +884,9 @@
 							display: true,
 							position: 'right',
 							id: 'y-axis-3',
-
+                            ticks : {
+                                beginAtZero : true
+                            },
 							// grid line settings
 							gridLines: {
 								drawOnChartArea: false, // only want the grid lines for one axis to show up
@@ -923,7 +930,7 @@
             $('#activity_percent').text(`Activity ${activity_percentage}%`);
 
             continuity = parseInt(continuity)
-            let continuity_list = [100-continuity, continuity];
+            let continuity_list = [continuity, 100-continuity];
             let task_percent_list = [student_task_clean_code, student_task_practice, student_task_algorithm ];
             let activity_percent = [activity_creativity, activity_problem_solving, activity_responsibility ];
             console.log( continuity_list,task_percent_list, activity_percent)
