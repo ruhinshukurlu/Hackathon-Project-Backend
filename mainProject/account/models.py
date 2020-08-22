@@ -1,4 +1,5 @@
 import math
+import random
 from django.db import models
 from django.core.mail import send_mail
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -39,7 +40,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def rating(self):
         point = self.rating_users.all().aggregate(models.Avg('point'))
-        print(point)
+        # print(point)
         if not point or not point.get('point__avg'):
             return 0.0
         return "{:.1f}".format(point.get('point__avg', 0))
@@ -71,6 +72,28 @@ class Student(models.Model):
 
     def __str__(self):
         return self.user.email
+
+    @property
+    def activity(self):
+        percentage = self.activities.aggregate(models.Avg('percentage'))
+        if not percentage or not percentage.get('percentage__avg'):
+            return random.randint(50, 100)
+        return int(percentage.get('percentage__avg', 0))
+
+    @property
+    def continuity(self):
+        percentage = self.activities.aggregate(models.Avg('percentage'))
+        if not percentage or not percentage.get('percentage__avg'):
+            return random.randint(50, 100)
+        return int(percentage.get('percentage__avg', 0))
+
+    @property
+    def task(self):
+        percentage = self.student_tasks.aggregate(models.Avg('percentage'))
+        if not percentage or not percentage.get('percentage__avg'):
+            return random.randint(50, 100)
+        return int(percentage.get('percentage__avg', 0))
+
 
 
 
